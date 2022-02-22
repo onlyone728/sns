@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
-<body class="bg-light">
+<body class="bg-light" style="color: #32292f;">
 <div id="wrap">
 	<section class="contents">
 		<jsp:include page="../${viewName}.jsp" />

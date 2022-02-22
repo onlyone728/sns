@@ -20,4 +20,8 @@ public class UserBO {
 		return userDAO.insertUser(loginId, password, name, email);
 	}
 	
+	public User getUserByLoginIdAndPassword(String loginId, String password) {
+		return userDAO.selectUserByLoginIdAndPassword(loginId, password);
+	}
+	
 }
