@@ -32,6 +32,5 @@ public class UserController {
 		
 		return "template/user-layout";
 	}
-	
-	
+	// 소스트리 로그인 오류 테스트
 }
