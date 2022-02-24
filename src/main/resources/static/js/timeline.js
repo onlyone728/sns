@@ -16,7 +16,7 @@
     // 포스트 옵션 모달 메뉴
     $('.postMenuBtn').on('click', function(e) {
 		e.preventDefault();
-		$('.modal').modal();
+		$(this).parent().next().modal();
 		
 	});
     // $('#postMenuBtn').on('click', function(e) {
