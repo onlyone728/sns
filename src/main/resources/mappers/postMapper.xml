@@ -13,5 +13,25 @@
 			, `updatedAt`
 		FROM
 			`post`
+		ORDER BY `id` DESC
  	</select>
+ 	
+ 	<insert id="insertPost" parameterType="map">
+	 	INSERT INTO `post`
+	 	(
+	 		`userId`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+	 	)
+	 	VALUES
+	 	(
+	 		#{userId}
+	 		, #{content}
+	 		, #{imagePath}
+	 		, NOW()
+	 		, NOW()
+	 	)
+ 	</insert>
  </mapper>

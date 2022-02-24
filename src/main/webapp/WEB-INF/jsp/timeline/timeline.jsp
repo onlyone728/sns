@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="box-800 timeline">
+	<c:forEach var="post" items="${postList}">
 	<div class="post-card">
 		<div class="post-info d-flex justify-content-between align-items-center">
 			<%-- 작성자 정보 --%>
@@ -8,16 +11,36 @@
 				<div class="writer-img mr-2">
 					<img src="https://cdn.pixabay.com/photo/2022/01/18/15/40/vietnam-6947337_1280.jpg" alt="프로필사진" width="32">
 				</div>
-				<div class="writer-Id">userId</div>
+				<div class="writer-Id">${post.userId}</div>
 			</div>
 			<div class="card-option pt-2 pr-2">
-				<svg aria-label="옵션 더 보기" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
+				<a href="modal:open" class="postMenuBtn" data-post-id="${post.id}">
+					<svg aria-label="옵션 더 보기" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
+				</a>
 			</div>
+			<div class="modal">
+			<ul id="postMenu">
+				<li class="text-danger font-weight-bold"><a href="#">신고</a></li>
+				<li class="text-danger font-weight-bold"><a href="#">팔로우 취소</a></li>
+				<li><a href="#">게시물로 이동</a></li>
+				<li><a href="#">공유대상</a></li>
+				<li><a href="#">링크 복사</a></li>
+				<li><a href="#">퍼가기</a></li>
+				<li><a href="#" data-dismiss="modal">취소</a></li>
+			</ul>
+		</div>
 		</div>
 		
 		<div class="post-img">
 			<div class="img-center">
-				<img src="https://cdn.pixabay.com/photo/2020/03/01/21/12/cat-4894153_1280.jpg" alt="포스트 이미지" height="598">
+				<img src="${post.imagePath}" alt="포스트 이미지" height="598">
+			</div>
+		</div>
+		
+		<div class="post-content-area">
+			<div class="content-box d-flex mb-2">
+				<div class="post-writer-id font-weight-bold">${post.userId}</div>
+				<div class="post-content ml-2">${post.content}</div>
 			</div>
 		</div>
 		
@@ -76,6 +99,7 @@
 		</div>
 		
 	</div>
+	</c:forEach>
 	
 	
 

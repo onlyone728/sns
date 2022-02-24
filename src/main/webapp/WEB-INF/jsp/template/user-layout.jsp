@@ -17,7 +17,7 @@
 <body class="bg-light" style="color: #32292f;">
 <div id="wrap">
 	<section class="contents">
-		<jsp:include page="../${viewName}.jsp" />
+		<jsp:include page="../${viewPath}.jsp" />
 	</section>
 	<footer>
 		<jsp:include page="../include/footer.jsp" />

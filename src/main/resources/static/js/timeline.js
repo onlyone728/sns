@@ -12,5 +12,15 @@
 		}
         
      });
+     
+    // 포스트 옵션 모달 메뉴
+    $('.postMenuBtn').on('click', function(e) {
+		e.preventDefault();
+		$('.modal').modal();
+		
+	});
+    // $('#postMenuBtn').on('click', function(e) {
+	//		e.preventDefault();
+	// });
  
 });
