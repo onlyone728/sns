@@ -88,7 +88,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="" id="logoutBtn" class="d-flex">
+						<a href="/user/sign_out" id="logoutBtn" class="d-flex">
 							<span>로그아웃</span>
 						</a>
 					</li>
