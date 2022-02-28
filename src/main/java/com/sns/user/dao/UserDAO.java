@@ -10,7 +10,8 @@ import com.sns.user.model.User;
 @Repository
 public interface UserDAO {
 
-	public User selectUserById(String loginId);
+	public User selectUserByLoginId(String loginId);
+	
 	public int insertUser(
 			@Param("loginId") String loginId, 
 			@Param("password") String password, 
@@ -23,4 +24,6 @@ public interface UserDAO {
 	
 	public List<User> selectUserList();
 	
+	
+	public User selectUserById(int userId);
 }

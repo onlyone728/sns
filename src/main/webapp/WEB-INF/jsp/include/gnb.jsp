@@ -4,7 +4,7 @@
 
 <div class="box-800 d-flex align-items-center justify-content-between">
 	<h1 class="logo">
-		<a href="/timeline/timeline_list_view">instagram</a>
+		<a href="/timeline/timeline_list_view">wonny.j</a>
 	</h1>
 	<div class="search-group form-group">
 		<i class="search-icon">
@@ -20,9 +20,14 @@
 		<input type="text" id="keyword" class="inline-form" placeholder="      검색">
 	</div>
 	
+	<c:if test="${empty userName}">
+	<div class="d-flex justify-content-end">
+		<a href="/user/sign_in_view" id="loginLinkBtn" >로그인</a>
+	</div>
+	</c:if>
+	<%-- session 정보가 있을 때 출력 --%>
+	<c:if test="${not empty userName}">
 	<div class="menu-icon d-flex justify-content-between">
-		<%-- session 정보가 있을 때 출력 --%>
-		<c:if test="${not empty userName}">
 		<div class="home">
 			<a href="/timeline/timeline_list_view">
 				<svg aria-label="홈" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
@@ -95,8 +100,8 @@
 				</ul>
 			</div>
 		</div>
-		</c:if>
 	</div>
+	</c:if>
 </div>
 
 <script type="text/javascript" src="/js/gnb.js"></script>

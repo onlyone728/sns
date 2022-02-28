@@ -14,8 +14,8 @@ public class UserBO {
 	@Autowired
 	private UserDAO userDAO;
 	
-	public User getUserById(String loginId) {
-		return userDAO.selectUserById(loginId);
+	public User getUserByLoginId(String loginId) {
+		return userDAO.selectUserByLoginId(loginId);
 	}
 	
 	public int addUser(String loginId, String password, String name, String email) {
@@ -28,6 +28,10 @@ public class UserBO {
 	
 	public List<User> getUserList() {
 		return userDAO.selectUserList();
+	}
+	
+	public User getUserById(int userId) {
+		return userDAO.selectUserById(userId);
 	}
 	
 }

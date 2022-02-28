@@ -32,7 +32,7 @@ public class UserRestController {
 	public Map<String, Boolean> isDuplicatedId(
 			@RequestParam("loginId") String loginId) {
 		// DB select
-		User user = userBO.getUserById(loginId);
+		User user = userBO.getUserByLoginId(loginId);
 		
 		// return boolean
 		Map<String, Boolean> result = new HashMap<>();

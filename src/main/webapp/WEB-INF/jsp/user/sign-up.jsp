@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div id="wrap" class="d-flex justify-content-center">
 	<div class="sign-up-box">
-		<h1 class="logo text-center py-3">Instagram</h1>
+		<h1 class="logo text-center py-3">wonny.j</h1>
 		<div class="form-group mb-3">
 			<label class="input-label" for="loginId">아이디</label>
 			<input type="text" id="loginId" class="form-control font-size">
