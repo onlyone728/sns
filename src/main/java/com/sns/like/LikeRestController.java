@@ -31,8 +31,10 @@ public class LikeRestController {
 		Integer userId = (Integer) session.getAttribute("userId");
 		
 		// return 값 만들기
+		boolean status = true;
 		Map<String, Object> result = new HashMap<>();
 		result.put("result", "success");
+		result.put("status", status);
 		
 		if (userId == null) {
 			// 로그인 되어있지 않음
@@ -46,11 +48,13 @@ public class LikeRestController {
 		if (count < 1) {
 			result.put("result", "fail");
 			result.put("errorMessage", "관리자에게 문의하세요.");
+			result.put("status", status);
 		}
 		
 		// return json
 		return result;
 	}
+	
 	
 //	@RequestMapping("/like")
 //	public Map<String, Object> addLike(

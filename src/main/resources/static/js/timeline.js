@@ -50,7 +50,7 @@
 
 		$.ajax({
 			type: "GET"
-			, url: "/like"
+			, url: "/like/" + postId
 			, data: {"postId": postId} 
 			, success: function(data) {
 				if (data.result == "success") {
