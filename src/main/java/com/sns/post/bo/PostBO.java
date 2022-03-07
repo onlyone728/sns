@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sns.comment.bo.CommentBO;
 import com.sns.common.FileManagerService;
+import com.sns.like.bo.LikeBO;
 import com.sns.post.dao.PostDAO;
 import com.sns.post.model.Post;
 
@@ -20,6 +22,12 @@ public class PostBO {
 	
 	@Autowired
 	private PostDAO postDAO;
+	
+	@Autowired
+	private CommentBO commentBO;
+	
+	@Autowired
+	private LikeBO likeBO;
 	
 	@Autowired
 	private FileManagerService fms;
@@ -66,11 +74,12 @@ public class PostBO {
 		}
 		
 		// 글 삭제
-		deletePostByPostIdANdUserId(postId, userId);
+		postDAO.deletePostByPostIdANdUserId(postId, userId);
 		
 		// 댓글 삭제 by postId
+		commentBO.deleteCommentByPostId(postId);
 		
 		// 좋아요 삭제 by postId
-		
+		likeBO.deleteLikeByPostId(postId);
 	}
 }

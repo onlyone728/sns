@@ -68,8 +68,4 @@ public class ContentBO {
 		return contentViewList;
 	}
 	
-	// userId로 화면 구성
-//	public List<ContentView> generateContentViewListByUserId(int userId) {
-//		
-//	}
 }

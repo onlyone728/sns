@@ -48,4 +48,8 @@ public class CommentBO {
 		
 		return resultList;
 	}
+	
+	public void deleteCommentByPostId(int postId) {
+		commentDAO.deleteCommentByPostId(postId);
+	}
 }

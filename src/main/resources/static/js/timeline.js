@@ -82,9 +82,25 @@ $(document).ready(function() {
 	$('#deleteModal .del-post').on('click', function(e) {
 		e.preventDefault();
 		let postId = $('#deleteModal').data('post-id');
-		alert(postId);
+		//alert(postId);
 
-
+		// 삭제 AJAX
+		$.ajax({
+			type: "DELETE"
+			, url: "/post/delete"
+			, data: {"postId" : postId}
+			, success: function(data) {
+				if (data.result == "success") {
+					alert("삭제되었습니다.");
+					location.reload();
+				} else {
+					alert(data.errorMessage);
+				}
+			}
+			, error: function(e) {
+				alert("삭제에 실패하였습니다. 관리자에게 문의하세요.");
+			}	
+		});
 	});
 
 });
