@@ -38,4 +38,19 @@ public class FileManagerService {
 		
 		return null;
 	}
+	
+	// 디렉토리 삭제
+	public void deleteFile(String imagePath) throws IOException {
+		// imagePath의 /images/onlyone728_173943/sun.png에서 /images/ 를 제거한 path를 실제 저장경로 뒤에 붙인다.
+		Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));
+		if (Files.exists(path)) {	// 이미지 파일이 있으면 삭제
+			Files.delete(path);
+		}
+				
+		// 디렉토리(폴더) 삭제
+		path = path.getParent();
+		if (Files.exists(path)) {
+			Files.delete(path);
+		}
+	}
 }

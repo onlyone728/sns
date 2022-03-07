@@ -21,12 +21,18 @@
 			</div>
 			<div class="modal">
 			<ul id="postMenu">
-				<li class="text-danger font-weight-bold"><a href="#">신고</a></li>
-				<li class="text-danger font-weight-bold"><a href="#">팔로우 취소</a></li>
+				<%-- 글쓴 사용자와 로그인 사용자가 일치할때만 삭제 가능 --%>
+				<c:if test="${userName == content.user.name}">
+					<li class="text-danger font-weight-bold"><a href="#" data-toggle="modal" data-target="#deleteModal" class="moreBtn" data-post-id="${content.post.id}">삭제</a></li>
+				</c:if>
+				<c:if test="${userName != content.user.name}">
+					<li class="text-danger font-weight-bold"><a href="#">신고</a></li>
+					<li class="text-danger font-weight-bold"><a href="#">팔로우 취소</a></li>
+					<li><a href="#">퍼가기</a></li>
+				</c:if>
 				<li><a href="#">게시물로 이동</a></li>
 				<li><a href="#">공유대상</a></li>
 				<li><a href="#">링크 복사</a></li>
-				<li><a href="#">퍼가기</a></li>
 				<li><a href="#" data-dismiss="modal">취소</a></li>
 			</ul>
 		</div>
@@ -114,9 +120,24 @@
 		
 	</div>
 	</c:forEach>
-	
-	
+</div>
 
+<%-- Delete Modal --%>
+<div class="modal fade" id="deleteModal">
+	<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+		<div class="modal-content">
+    		<%-- modal 창 안에 내용 넣기 --%>
+    		<div>
+    			<div class="my-3 text-center">
+    				<a href="#" class="del-post d-block">삭제하기</a>
+    			</div>
+    			<div class="border-top py-3 text-center">
+    				<%-- data-dismiss : 모달 창 닫힘 --%>
+    				<a href="#" class="cancel d-block" data-dismiss="modal">취소</a>
+    			</div>
+    		</div>
+    	</div>
+  	</div>
 </div>
 
 <script type="text/javascript" src="/js/timeline.js"></script>

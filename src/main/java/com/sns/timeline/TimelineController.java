@@ -47,4 +47,20 @@ public class TimelineController {
 		model.addAttribute("viewPath", "timeline/timeline");
 		return "template/layout";
 	}
+	
+	@RequestMapping("/my_timeline_view")
+	public String myTimelineView(
+			Model model,
+			HttpServletRequest request) {
+		// userId 가져오기
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("userId");
+		
+		// DB 가져오기
+		List<ContentView> contentViewList = contentBO.generateContentViewList(userId);
+		model.addAttribute("contentList", contentViewList);
+		model.addAttribute("viewPath", "timeline/my-timeline");
+		
+		return "template/layout";
+	}
 }
