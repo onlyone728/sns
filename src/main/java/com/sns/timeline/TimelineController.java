@@ -34,10 +34,11 @@ public class TimelineController {
 		
 		HttpSession session = request.getSession();
 		Integer userId = (Integer) session.getAttribute("userId");
+		String uri = request.getRequestURI();
 		
 		// 하나의 카드 => ContentView 객체 (view용 객체)
 		List<ContentView> contentList = new ArrayList<>();
-		contentList = contentBO.generateContentViewList(userId);
+		contentList = contentBO.generateContentViewList(userId, uri);
 		
 		// post 내용
 		// List<Post> postList = postBO.getPostList();
@@ -55,9 +56,10 @@ public class TimelineController {
 		// userId 가져오기
 		HttpSession session = request.getSession();
 		int userId = (int) session.getAttribute("userId");
+		String uri = request.getRequestURI();
 		
 		// DB 가져오기
-		List<ContentView> contentViewList = contentBO.generateContentViewList(userId);
+		List<ContentView> contentViewList = contentBO.generateContentViewList(userId, uri);
 		model.addAttribute("contentList", contentViewList);
 		model.addAttribute("viewPath", "timeline/my-timeline");
 		

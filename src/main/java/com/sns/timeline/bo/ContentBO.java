@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sns.comment.bo.CommentBO;
 import com.sns.comment.model.CommentView;
@@ -31,12 +32,19 @@ public class ContentBO {
 	private UserBO userBO;
 	
 	// 로그인되지 않아도 타임라인은 볼 수 있으므로 userId는 Integer 
-	public List<ContentView> generateContentViewList(Integer userId) {
+	public List<ContentView> generateContentViewList(
+			@RequestParam(value="userId", required=false) Integer userId,
+			@RequestParam("uri") String uri) {
 		// contentView객체를 각각 저장할 리스트
 		List<ContentView> contentViewList = new ArrayList<>();	
+		List<Post> postList = new ArrayList<>();
 		
 		// 글 List 가져온다. => 반복문 돌림
-		List<Post> postList = postBO.getPostList();
+		if (userId != null && uri.startsWith("/timeline/my")) {
+			postList = postBO.getPostListByUserId(userId);
+		} else {
+			postList = postBO.getPostList();
+		}
 		
 		// contentView에 내용 저장
 		for (Post post : postList) {

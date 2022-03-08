@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div class="box-800 timeline">
-	<c:forEach var="content" items="${contentList}">
+	<c:forEach var="content" items="${contentList}" varStatus="status">
 	<div class="post-card">
 		<div class="post-info d-flex justify-content-between align-items-center">
 			<%-- 작성자 정보 --%>
@@ -38,13 +38,14 @@
 		</div>
 		</div>
 		
-		<c:if test="${not empty content.post.imagePath}">
 		<div class="post-img">
+		<c:if test="${not empty content.post.imagePath}">
 			<div class="img-center">
 				<img src="${content.post.imagePath}" alt="포스트 이미지" height="598">
 			</div>
-		</div>
 		</c:if>
+			<div class="h-100 d-flex align-items-center justify-content-center">No Image</div>
+		</div>
 		
 		<div class="post-content-area">
 			<div class="content-box d-flex mb-2">
@@ -141,3 +142,4 @@
 </div>
 
 <script type="text/javascript" src="/js/timeline.js"></script>
+<script type="text/javascript" src="/js/infiniteScroll.js"></script>

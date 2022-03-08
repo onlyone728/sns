@@ -6,7 +6,7 @@
 	$('.font-size').on('propertychange change keyup paste input', function(){
 		let newValue = $(this).val();
 		let selectedInput = $(this).prev('.input-label');
-		if (newValue.length > 1) {
+		if (newValue.length > 0) {
 			$(selectedInput).css('padding', '4px 13px');
 			$(selectedInput).css('font-size', '5px');
 			$(selectedInput).css('color', '#000');

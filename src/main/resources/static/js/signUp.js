@@ -6,7 +6,7 @@
 	$('.font-size').on('propertychange change keyup paste input', function(){
 		let newValue = $(this).val();
 		let selectedInput = $(this).prev('.input-label');
-		if (newValue.length > 1) {
+		if (newValue.length > 0) {
 			$(selectedInput).css('padding', '4px 13px');
 			$(selectedInput).css('font-size', '5px');
 			$(selectedInput).css('color', '#000');
@@ -133,7 +133,7 @@
 			, data: {"loginId": loginId, "password": password, "name": name, "email": email}
 			, success: function(data) {
 				alert(loginId + "님 반갑습니다.\n로그인 후 이용해주세요.");
-				location.href = /user/sign_in_view;
+				location.href = "/user/sign_in_view";
 			}
 			, error: function(e) {
 				alert("관리자에게 문의하세요.");

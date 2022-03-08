@@ -1,7 +1,8 @@
-/**
- * 
- */
 $(document).ready(function() {
+	// 페이징
+	
+
+
 	// 댓글입력 게시 버튼 활성화
 	$('.comment').on("propertychange change keyup paste input", function() {
 		let newValue = $(this).val();
@@ -66,7 +67,7 @@ $(document).ready(function() {
 	});
 
 	// 좋아요 삭제
-	$('.post-like-btn').on('click', function(e) {
+	$('.likeDelBtn').on('click', function(e) {
 		e.preventDefault();
 	});
 
@@ -77,7 +78,7 @@ $(document).ready(function() {
 		//console.log(postId);
 		$('#deleteModal').data('post-id', postId);
 	});
-	
+
 	// 모달창 안에 있는 삭제하기 버튼 클릭
 	$('#deleteModal .del-post').on('click', function(e) {
 		e.preventDefault();
@@ -88,7 +89,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "DELETE"
 			, url: "/post/delete"
-			, data: {"postId" : postId}
+			, data: { "postId": postId }
 			, success: function(data) {
 				if (data.result == "success") {
 					alert("삭제되었습니다.");
@@ -99,7 +100,7 @@ $(document).ready(function() {
 			}
 			, error: function(e) {
 				alert("삭제에 실패하였습니다. 관리자에게 문의하세요.");
-			}	
+			}
 		});
 	});
 
