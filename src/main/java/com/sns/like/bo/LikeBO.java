@@ -14,8 +14,13 @@ public class LikeBO {
 	@Autowired
 	private LikeDAO likeDAO;
 	
-	public int addLike(int userId, int postId) {
-		return likeDAO.insertLike(userId, postId);
+	public void like(int userId, int postId) {
+		boolean existLike = existLike(postId, userId);
+		if (existLike) {
+			likeDAO.deleteLikeByPostIdAndUserId(postId, userId);
+		} else {
+			likeDAO.insertLike(postId, userId);
+		}
 	}
 	
 	public List<Like> getLikeListByPostId(int postId) {
@@ -26,16 +31,12 @@ public class LikeBO {
 		return likeDAO.selectLikeListCountByPostIdOrUserId(postId, null);
 	}
 	
-	public boolean isLikeByPostIdAndUserId(int postId, Integer userId) {
+	public boolean existLike(int postId, Integer userId) {
 		if (userId == null) {
 			return false;
 		} 
 		int count = likeDAO.selectLikeListCountByPostIdOrUserId(postId, userId);
-		if (count > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return count > 0 ? true : false;
 	}
 	
 	public void deleteLikeByPostId(int postId) {

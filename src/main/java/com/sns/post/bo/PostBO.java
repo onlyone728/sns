@@ -40,8 +40,8 @@ public class PostBO {
 		return postDAO.selectPostListByUserId(userId);
 	}
 	
-	public Post getPostById(int id) {
-		return postDAO.selectPostById(id);
+	public Post getPostByPostIdAndUser(int postId, int userId) {
+		return postDAO.selectPostByPostIdAndUserId(postId, userId);
 	}
 	
 	// userId userLoginId content file
@@ -59,7 +59,7 @@ public class PostBO {
 	
 	public void deletePostByPostIdANdUserId(int postId, int userId) {
 		// postId로 select post
-		Post post = getPostById(postId);
+		Post post = getPostByPostIdAndUser(postId, userId);
 		if (post == null) {
 			logger.error("[delete post] 삭제할 포스트가 존재하지 않습니다. postId : {}", postId);
 		}

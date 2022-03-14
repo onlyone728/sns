@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="box-800">
+<div class="box-800 pt-5">
 	<c:if test="${not empty userId}">
 	<div id="post-input-area">
 		<textarea id="post-input-content" class="form-control" rows="10" placeholder="내용을 입력하세요."></textarea>

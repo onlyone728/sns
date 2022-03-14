@@ -27,7 +27,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		if (userId != null && uri.startsWith("/user")) {
 			response.sendRedirect("/timeline/timeline_list_view");
 			return false;
-		} else if (userId == null && uri.startsWith("/post")) {
+		} else if (userId == null && (uri.startsWith("/post") || uri.startsWith("/timeline/my"))) {
 			response.sendRedirect("/user/sign_in_view");
 			return false;
 		}

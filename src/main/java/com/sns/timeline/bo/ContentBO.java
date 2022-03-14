@@ -67,7 +67,7 @@ public class ContentBO {
 			contentView.setLikeCount(likeCount);
 			
 			// 로그인 된 사용자의 좋아요 여부 세팅
-			boolean islike = likeBO.isLikeByPostIdAndUserId(postId, userId);
+			boolean islike = likeBO.existLike(postId, userId);
 			contentView.setFilledLike(islike);
 			
 			contentViewList.add(contentView);

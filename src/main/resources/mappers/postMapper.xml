@@ -31,7 +31,7 @@
 		ORDER BY `id` DESC
  	</select>
  	
- 	<select id="selectPostById" resultType="com.sns.post.model.Post" parameterType="int">
+ 	<select id="selectPostByPostIdAndUserId" resultType="com.sns.post.model.Post" parameterType="map">
  		SELECT
  			`id`
 			, `userId`
@@ -42,7 +42,8 @@
 		FROM
 			`post`
 		WHERE
-			`id` = #{id}
+			`id` = #{postId}
+			AND `userId` = #{userId}
  	</select>
  	
  	<insert id="insertPost" parameterType="map">

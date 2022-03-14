@@ -11,14 +11,18 @@ import com.sns.like.model.Like;
 public interface LikeDAO {
 
 	public int insertLike(
-			@Param("userId") int userId,
-			@Param("postId") int postId);
+			@Param("postId") int postId,
+			@Param("userId") int userId);
 	
 	public List<Like> selectLikeListByPostId(int postId);
 	
 	public int selectLikeListCountByPostIdOrUserId(
 			@Param("postId") int postId,
 			@Param("userId") Integer userId);
+	
+	public void deleteLikeByPostIdAndUserId(
+			@Param("postId") int postId,
+			@Param("userId") int userId);
 	
 	public void deleteLikeByPostId(int postId);
 }
