@@ -110,8 +110,7 @@
 
 			<%-- 댓글 작성 : 로그인된 사용자만 --%>
 			<c:if test="${not empty userId}">
-				<div
-					class="comment-input-area d-flex justify-content-between align-content-center pt-3">
+				<div class="comment-input-area d-flex justify-content-between align-content-center pt-3">
 					<div>
 						<a href="#" class="emoji-btn"> 
 							<svg aria-label="이모티콘" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">

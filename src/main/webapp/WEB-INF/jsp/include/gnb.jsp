@@ -57,7 +57,7 @@
 		</div>
 		<div class="user">
 			<a href="#user-menu-area" id="menuBtn">
-				<img src="" alt="${loginId}님의 프로필 사진">
+				<img src="" alt="${userLoginId}님의 프로필 사진">
 			</a>
 			<div id="user-menu-area" class="user-menu-area d-none">
 				<ul class="user-menu">
